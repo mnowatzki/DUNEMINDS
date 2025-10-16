@@ -39,7 +39,38 @@ The cells in this section **always have to be run** as they contain:
 - the definition of common variables and paths
 - call to helper functions
 
+In ´import packages, define common paths & variables´, enter your HOME_PATH (on GoogleDrive).
+In ´wandb set up´ enter your wandb key.
 
+
+## Directory Creation
+This section creates the directory structure required for the following operations.
+
+
+## Data Download
+This section can be used to download Earth Engine datasets. It is customised for Copernicus DEM, ALOS DEM, and Sentinel-2 but can be easily extended to other Earth Engine data sets.
+An Earth Engine project key is required. 
+The dropdown menus and text boxes can be used to define the search parameters for the imagery (e.g. date, max cloudy pixels,...). 
+
+## Data pre-processing
+Contains a function to check if the target images are already pre-processed, pre-processing functions, and an execution cell for the pre-processing functions.
+Pre-processing functions are only executed if the pre-processing check yields they are not yet pre-processed.
+Pre-processing consists of a variety of checks (e.g. required tile size and band number) as well as normalisation.
+
+## Training & Validation
+Contains functions for:
+- custom validation metrics
+- functions for different U-Net model architectures
+- functions for a tiered IoU metric
+- functions for dataset preparation and augmentation
+
+Two execution cells are (1) preparing the dataset and (2) executing model training.
+
+
+## Visualising validation data
+
+
+## Testing / Prediction
 
 
 
