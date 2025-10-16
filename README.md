@@ -35,6 +35,7 @@ Pre-processed training data can be obtained [here](https://drive.google.com/driv
 
 ## Folder structure:
 
+```text
 pp_data/                        # preprocessed tiles for training & testing
 ├── train_pp/                   # preprocessed training data
 │   ├── labels/                 # label rasters (dune crest lines)
@@ -52,4 +53,5 @@ pp_data/                        # preprocessed tiles for training & testing
     └── tiles_9600/             # large-area test tiles (9600×9600 px)
         ├── sentinel/           # large Sentinel image tiles
         └── dem/                # DEM tiles for large test areas
+
 
