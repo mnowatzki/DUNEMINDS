@@ -31,7 +31,7 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 
 # Data
 
-Pre-processed training data can be obtained [here] (https://drive.google.com/drive/folders/1-TrPQzy8tLkgg-vgebODLxou5t6dp9dN?usp=sharing).
+Pre-processed training data can be obtained [here](https://drive.google.com/drive/folders/1-TrPQzy8tLkgg-vgebODLxou5t6dp9dN?usp=sharing).
 
 ## Folder structure:
 
