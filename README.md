@@ -20,7 +20,7 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 
 ---
 
-## 2. Running in Google Colab (recommended set-up)
+## 2. Recommendet Set-up: Google Colab
 
 
    - Upload `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive.
