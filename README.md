@@ -6,7 +6,7 @@ The repository includes an interactive notebook customised to be run through Goo
 
 ---
 
-## 1. Overview
+# 1. Overview
 
 This repository includes:
 
@@ -20,16 +20,32 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 
 ---
 
-## 2. Recommendet Set-up: Google Colab
+# 2. Recommendet Set-up: Google Colab
 
 
    - Upload `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive.
    - If the `.py` scripts are located in different folders, the paths in `duneminds_original.ipynb` need to be updated.
 
 
+# 3. Script structure
+
+**`duneminds_original.ipynb`** contains multiple sections with different functions that can be run in sequence or individually. 
+
+## INTRO
+The cells in this section **always have to be run** as they contain:
+- installations and package imports
+- the mounting of the google drive to access files
+- the set-up of wandb for AI experiment tracking
+- the definition of common variables and paths
+- call to helper functions
 
 
-# Data
+
+
+
+
+
+# 4. Data
 
 Pre-processed training data can be obtained [here](https://drive.google.com/drive/folders/1-TrPQzy8tLkgg-vgebODLxou5t6dp9dN?usp=sharing).
 
