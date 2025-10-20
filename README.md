@@ -3,6 +3,7 @@
 
 DUNEMINDS is a notebook-based deep learning model developed to map dune crest lines based on semantic segmentation. It includes all steps of the workflow from data access and pre-processing to model training and inference.
 The repository includes an interactive notebook customised to be run through Google Colaboratory as well as helper scripts.
+Model training and validation are tracked through [*weights & biases*](https://wandb.ai/site).
 
 ---
 
@@ -15,7 +16,7 @@ This repository includes:
 - **`model_1_datadownload.py`** — helper script for the download of digital elevation models / optical satellite imagery.
 - **`model_1_functions.py`** — helper script for various utilities.
 
-- 
+
 The notebook uses **interactive dropdown menus and widgets**, so running it in **Google Colab** is recommended.
 
 ---
@@ -23,8 +24,21 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 # 2. Recommendet Set-up: Google Colab
 
 
-   - Upload `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive.
-   - If the `.py` scripts are located in different folders, the paths in `duneminds_original.ipynb` need to be updated.
+We recommend the upload of `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive. Google Colab should automatically be available upon opening the script in your browser. 
+If the `.py` scripts are located in different folders, the paths in `duneminds_original.ipynb` need to be updated.
+
+
+## Colab Forms
+Google Colab uses so-called *Forms* to enable the creation of drop-down menus, text fields, sliders, and more. We are providing these interactive input options to make running the script more intuitive, particularly for users that have limited programming experience. It contains: 
+
+- *sliders* for entering numeric values within predefined ranges
+- *dropdown menus* for selecting from existing variable options
+- *checkboxes* for simple yes/no (boolean) inputs
+- *text boxes* for direct data entry with defined data types (e.g., string, integer, float)
+
+These controls allow you to easily adjust parameters without modifying the code directly.
+If the predefined options don’t match your use case, you can still edit the dropdown lists or enter your own values directly in the script - full flexibility remains available.
+More information [here](https://colab.research.google.com/notebooks/forms.ipynb).
 
 
 # 3. Script structure
@@ -39,12 +53,19 @@ The cells in this section **always have to be run** as they contain:
 - the definition of common variables and paths
 - call to helper functions
 
-In ´import packages, define common paths & variables´, enter your HOME_PATH (on GoogleDrive).
-In ´wandb set up´ enter your wandb key.
+### To Do:
+In *import packages, define common paths & variables*, enter your `HOME_PATH` (on GoogleDrive). The `FUNCTIONS_SCRIPT_PATH` only needs to be entered if `model_1_functions.py` is not located in the same directory as `duneminds_original.ipynb`.
+In *wandb set up* enter your wandb key.
 
 
 ## Directory Creation
 This section creates the directory structure required for the following operations.
+
+### To Do: 
+Enter your `study_area`. The Kalahari Desert ("kalahari") and Simpson Desert ("simpson") are available through the drop-down menu. The naming of the study area is important for the directory structure in case of multiple study areas.
+
+<img width="1394" height="172" alt="image" src="https://github.com/user-attachments/assets/426c2711-152b-4313-9cd5-8b596a42aed0" />
+
 
 
 ## Data Download
