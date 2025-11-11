@@ -100,6 +100,23 @@ You can check the state of the download on the [Earth Engine platform](https://c
 
 
 
+## Merging & clipping base images: Sentinel & DEM
+
+This section enables the merging of multiple downloaded tiles - which will be relevant for large study areas such as the Kalahari. Afterwards, the mosaic of tiles is clipped to the study area's extent.
+
+### To Do:
+Ensure that `study_area` is set to the right location.
+This section requires a shapefile called `{study_area}_shape.shp` in the directory specified during the creation of the directory structure (by default, it is `STUDY_AREA_SHAPES_FOLDER_PATH = os.path.join(HOME_PATH, study_area, "shapes")`
+Set `merged_dataset` and `data_set` to the data set that you will be merging and clipping (e.g. dem - copdem. 
+`src_nodata` is set to the no data value of the respective data set.
+
+
+
+## Sense Check
+
+This cell is optional and can be run to visualise an extract of the merged and clipped dataset for a low-key sense check. This can either be done with a static sense check (i.e., displaying an image) or through an interactive folium map.
+
+
 ## Data pre-processing
 Contains a function to check if the target images are already pre-processed, pre-processing functions, and an execution cell for the pre-processing functions.
 Pre-processing functions are only executed if the pre-processing check yields they are not yet pre-processed.
