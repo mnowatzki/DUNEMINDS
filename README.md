@@ -1,8 +1,8 @@
 # DUNEMINDS
 
 
-DUNEMINDS is a notebook-based deep learning model developed to map dune crest lines based on semantic segmentation. It includes all steps of the workflow from data access and pre-processing to model training and inference.
-The repository includes an interactive notebook customised to be run through Google Colaboratory as well as helper scripts.
+DUNEMINDS is a notebook-based framework centered around a deep learning model that was developed to map dune crest lines using semantic segmentation. It includes all steps of the workflow from data access and pre-processing to model training and inference.
+The repository includes an interactive notebook customised to be run through Google Colaboratory as well as helper `.py`scripts.
 Model training and validation are tracked through [*weights & biases*](https://wandb.ai/site).
 
 ---
@@ -26,10 +26,11 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 
 We recommend the upload of `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive. Google Colab should automatically be available upon opening the script in your browser. 
 If the `.py` scripts are located in different folders, the paths in `duneminds_original.ipynb` need to be updated.
+Note: Opening the Colab file through the **Open in Colab** button at the top of the **`duneminds_original.ipynb`** script in Github won't work as the script requires the helper scripts (see **1. Overview**).
 
 
 ## Colab Forms
-Google Colab uses so-called *Forms* to enable the creation of drop-down menus, text fields, sliders, and more. We are providing these interactive input options to make running the script more intuitive, particularly for users that have limited programming experience. It contains: 
+Google Colab uses so-called *Forms* to enable the creation of drop-down menus, text fields, sliders, and more. We are providing these interactive input options to show what variables can be changed flexibly and make running the script more intuitive, particularly for users that have limited programming experience. It contains: 
 
 - *sliders* for entering numeric values within predefined ranges
 - *dropdown menus* for selecting from existing variable options
@@ -37,7 +38,7 @@ Google Colab uses so-called *Forms* to enable the creation of drop-down menus, t
 - *text boxes* for direct data entry with defined data types (e.g., string, integer, float)
 
 These controls allow you to easily adjust parameters without modifying the code directly.
-If the predefined options don’t match your use case, you can still edit the dropdown lists or enter your own values directly in the script - full flexibility remains available.
+If the predefined options don’t match your use case, you can still edit the dropdown options, slider range, etc or enter your own values directly in the script - full flexibility remains available.
 More information [here](https://colab.research.google.com/notebooks/forms.ipynb).
 
 
@@ -53,8 +54,11 @@ The cells in this section **always have to be run** as they contain:
 - the definition of common variables and paths
 - call to helper functions
 
+### Note:
+The Colab runtime has to be restarted once the first cell (**installations**) has been run. This is due to a workaround to make dependencies work that were used when the model was first developed. To restart the runtime, click the **Runtime** tab and choose **restart runtime**. 
+
 ### To Do:
-In *import packages, define common paths & variables*, enter your `HOME_PATH` (on GoogleDrive). The `FUNCTIONS_SCRIPT_PATH` only needs to be entered if `model_1_functions.py` is not located in the same directory as `duneminds_original.ipynb`.
+In *set seed, mount GDrive, common paths, import modules from other scripts*, enter your `HOME_PATH` (on GoogleDrive). Enter your `SCRIPT_PATH` to the directory where `model_1_functions.py` and the other helper scripts are located.
 In *wandb set up* enter your wandb key.
 
 
