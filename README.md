@@ -23,10 +23,11 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 
 # 2. Recommendet Set-up: Google Colab
 
-
 We recommend the upload of `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive. Google Colab should automatically be available upon opening the script in your browser. 
 If the `.py` scripts are located in different folders, the paths in `duneminds_original.ipynb` need to be updated.
 Note: Opening the Colab file through the **Open in Colab** button at the top of the **`duneminds_original.ipynb`** script in Github won't work as the script requires the helper scripts (see **1. Overview**).
+
+
 
 
 ## Colab Forms
@@ -41,10 +42,13 @@ These controls allow you to easily adjust parameters without modifying the code 
 If the predefined options don’t match your use case, you can still edit the dropdown options, slider range, etc or enter your own values directly in the script - full flexibility remains available.
 More information [here](https://colab.research.google.com/notebooks/forms.ipynb).
 
+---
 
 # 3. Script structure
 
 **`duneminds_original.ipynb`** contains multiple sections with different functions that can be run in sequence or individually. 
+
+
 
 ## INTRO
 The cells in this section **always have to be run** as they contain:
@@ -62,6 +66,7 @@ In *set seed, mount GDrive, common paths, import modules from other scripts*, en
 In *wandb set up* enter your wandb key.
 
 
+
 ## Directory Creation
 This section creates the directory structure required for the following operations.
 
@@ -73,9 +78,27 @@ Enter your `study_area`. The Kalahari Desert ("kalahari") and Simpson Desert ("s
 
 
 ## Data Download
-This section can be used to download Earth Engine datasets. It is customised for Copernicus DEM, ALOS DEM, and Sentinel-2 but can be easily extended to other Earth Engine data sets.
-An Earth Engine project key is required. 
-The dropdown menus and text boxes can be used to define the search parameters for the imagery (e.g. date, max cloudy pixels,...). 
+This section can be used to download Google Earth Engine datasets. It is customised for Copernicus DEM, ALOS DEM, and Sentinel-2 but can be easily extended to other Earth Engine data sets.
+
+### To Do - before running:
+For data download via Google Earth Engine, your Earth Engine will need to be set up. Information on getting started and signing up for a non-commercial account [here](https://earthengine.google.com/noncommercial/). In the [Google Cloud Console](https://console.cloud.google.com/), you can create a new project or find the project key of your current one by clicking on **My Project**. You will need to enter your project key (e.g. `my-project-1111111111111`) into the first text box (`ee_project_key`).
+Set `study_area` to match that of a directory you have created.
+Further dropdown menus and text boxes can be used to define the search parameters for the imagery you would like to download: 
+- `start_date` and `end_date` (temporal range of sensing date) - only needed for optical imagery!
+- `cloudy_pixels` (maximum cloud coverage, in percent) - only needed for optical imagery!
+- `R_band`, `G_band`, `B_band`, `NIR_band` (names of the red, green, blue, and NIR band - by default set to Sentinel-2, needs to be changed only if using other optical imagery such as Landsat) - only needed for optical imagery!
+- `export_scale`(resolution of imagery, by default set to 10m)
+- `export_folder_suffix` (makes sense to use a suffix that matches the dataset to download)
+- `export_crs` (by default EPSG:3857)
+- 'download_data' (data set to download - COP-DEM, ALOS, or Sentinel-2 are pre-set to choose from) - MOST IMPORTANT to set!
+
+### To Do - after running:
+
+You can check the state of the download on the [Earth Engine platform](https://code.earthengine.google.com/). The data will be automatically downloaded to your GoogleDrive at the path set up and specified during directory creation and in this cell's DOWNLOADS_FOLDER_PATH.
+
+<img width="573" height="318" alt="image" src="https://github.com/user-attachments/assets/5f99588c-5b4a-441c-a855-608f5308c215" />
+
+
 
 ## Data pre-processing
 Contains a function to check if the target images are already pre-processed, pre-processing functions, and an execution cell for the pre-processing functions.
@@ -99,7 +122,7 @@ Two execution cells are (1) preparing the dataset and (2) executing model traini
 
 
 
-
+---
 
 # 4. Data
 
