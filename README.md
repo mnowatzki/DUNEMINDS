@@ -129,8 +129,28 @@ Choose the base data set (`data_set`) for your DEM derivatives - this can either
 Choose the `derivative` that you'd like to produce: **curvature**, **smoothed curvature**, or **dune height**.
 For smoothed curvature and dune height, you can select further parameters.
 For smoothed curvature: `sigma_value_curv_smooth`.
-For dune height: `sigma_value_dune_height`, `kernel_size_dune_height`, and most importantly the `height_approach` (recommended: top hat):
+For dune height: `sigma_value_dune_height`, `kernel_size_dune_height`, and most importantly the `height_approach` (recommended: top hat).
 
+
+
+## Tiling
+
+Both training and prediction (testing) of the model uses tiles extracted from the extensive raster data covering the entire study area. For training, it is advisable to use small tiles to keep the labelling effort low (or use the provided 96x96 pixel labelled tiles); for prediction/testing, it can make sense to split extensive study areas such as the Kalahari into multiple tiles for processing.
+The section consists of three cells: 
+- *create csv function* contains a function to produce a CSV file saving the placing of labels so the matching image tiles can be created;
+- the *main tiling function*;
+- a cell to determine variables and execute the functions
+
+### To Do:
+Set `study_area` to the right variable. 
+Determine the base `data_set` you want to tile (note: for curvature, dune height, and smoothed curvature this is copdem!) and the `tile_type` (this is where you choose from curv, curv_smooth, sentinel, etc).
+Choose whether you're tiling for training or testing (`train_test`) and what size you want your tiles to have (`tile_size`). Recommended is a tile size of 96 for training tiles, larger for test tiles.
+Choose the `pixe_size` - recommended default is 10m to make use of the high Sentinel-2 resolution.
+You can now select whether you'd like to create **specific tiles**, **random tiles**, or **all tiles**.
+Specific tiles will create tiles in the same locations as tiles you've previously created and saved. Just set `img_to_csv_folder` to the folder from which you'd like to copy the tile locations; e.g. `train_pp/labels`. Make sure that `suffix` is set to the suffix of the files you'd like to copy from in case there are not only .tif files in the folder (e.g., .tif.aux.xml files that are created when opening .tif files in a GIS).
+Random tiles will create the number of randomly distributed tiles across the study area that you've chosen through `tile_nr`.
+All tiles will break the entire study area into tiles of the size you've selected.
+You can choose a `prefix`for the tile images you're creating.
 
 
 
