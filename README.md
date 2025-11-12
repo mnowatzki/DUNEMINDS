@@ -114,7 +114,24 @@ Set `merged_dataset` and `data_set` to the data set that you will be merging and
 
 ## Sense Check
 
-This cell is optional and can be run to visualise an extract of the merged and clipped dataset for a low-key sense check. This can either be done with a static sense check (i.e., displaying an image) or through an interactive folium map.
+This section is optional and can be run to visualise an extract of the merged and clipped dataset for a low-key sense check. This can either be done with a static sense check (i.e., displaying an image, first cell) or through an interactive folium map (second cell).
+
+
+
+## Curvature, height, merge
+
+This section can be used for the creation of secondary DEM data - a dune height data set (extracting local heights from the underlying topography), a curvature data set, and a smoothed curvature data set. Due to a limitation of the `richdem` library that is used in the calculation, curvature is processed in two chunks (northern and southern portion of the study area separately) and then merged and clipped.
+The first cell provides one function containing the calculations for all three DEM derivatives; variables need to be set in the second cell along with the execution of the function. 
+
+### To Do:
+Set `study_area` to the right variable.
+Choose the base data set (`data_set`) for your DEM derivatives - this can either be COP-DEM or ALOS, depending on what you've downloaded before.
+Choose the `derivative` that you'd like to produce: **curvature**, **smoothed curvature**, or **dune height**.
+For smoothed curvature and dune height, you can select further parameters.
+For smoothed curvature: `sigma_value_curv_smooth`.
+For dune height: `sigma_value_dune_height`, `kernel_size_dune_height`, and most importantly the `height_approach` (recommended: top hat):
+
+
 
 
 ## Data pre-processing
