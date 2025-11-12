@@ -121,7 +121,7 @@ This section is optional and can be run to visualise an extract of the merged an
 ## Curvature, height, merge
 
 This section can be used for the creation of secondary DEM data - a dune height data set (extracting local heights from the underlying topography), a curvature data set, and a smoothed curvature data set. Due to a limitation of the `richdem` library that is used in the calculation, curvature is processed in two chunks (northern and southern portion of the study area separately) and then merged and clipped.
-The first cell provides one function containing the calculations for all three DEM derivatives; variables need to be set in the second cell along with the execution of the function. 
+The first cell provides one function containing the calculations for all three DEM derivatives; variables need to be set in the second cell along with the execution of the function. Merging and clipping will only be executed if there are no merged/clipped files existing in the specified folder.
 
 ### To Do:
 Set `study_area` to the right variable.
@@ -153,11 +153,21 @@ All tiles will break the entire study area into tiles of the size you've selecte
 You can choose a `prefix`for the tile images you're creating.
 
 
+### Important:
+If you've decided to not use the provided labels, you will have to manually create labels for your training tiles at this point.
+
 
 ## Data pre-processing
-Contains a function to check if the target images are already pre-processed, pre-processing functions, and an execution cell for the pre-processing functions.
-Pre-processing functions are only executed if the pre-processing check yields they are not yet pre-processed.
+This section contains a function to check if the target images are already pre-processed, pre-processing functions, and an execution cell.
+Pre-processing is only executed if the pre-processing check yields that the tiles are not yet pre-processed.
 Pre-processing consists of a variety of checks (e.g. required tile size and band number) as well as normalisation.
+
+### To Do:
+Set `study_area` to the right variable. 
+Determine what `tile_type` you'd like to check or pre-process - sentinel, dem, curv, curv_smooth, dune_height, or labels.
+Specify the `tile_size` and `pixel_size` as well as the `band_number` you'd like to check. E.g. for the provided sentinel training tiles, this would be 96, 10, and 4.
+It is important to choose the `nodata_value` that was determined previously - either manually or through libraries used for calculations. We used -99 for dem and curv; -9999 for curv_smooth, and 0 for all others.
+
 
 ## Training & Validation
 Contains functions for:
