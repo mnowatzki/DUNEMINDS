@@ -170,13 +170,16 @@ It is important to choose the `nodata_value` that was determined previously - ei
 
 
 ## Training & Validation
-Contains functions for:
-- custom validation metrics
-- functions for different U-Net model architectures
-- functions for a tiered IoU metric
-- functions for dataset preparation and augmentation
 
-Two execution cells are (1) preparing the dataset and (2) executing model training.
+This section contains cells with the following content:
+- *custom metrics*: Functions to calculate custom model validation metrics
+- *model functions*: Functions defining model architectures
+- *tiered IoU functions*: Functions to calculate a validation metric developed during model development, the tiered IoU (t-IoU)
+- *dataset preparation / augmentation functions*: Functions needed for the preparation of the training data set - e.g. matching and stacking training labels and images, train / vali split, etc. - and for data augmentation. Includes visual sense checks.
+- *main training function*: Functions for model training, including the option for fine-tuning existing model weights or newly training a model
+- *evaluation functions*: Functions for model evaluation/validation, including loss and accuracy curves and the calculation of a variety of metrics (iou, t-iou, false positives, true positives, false negatives, true negatives,...)
+
+Two further cells are execution cells for (1) preparing the dataset and (2) running the model training.
 
 
 ## Visualising validation data
