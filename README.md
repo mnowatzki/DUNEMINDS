@@ -181,6 +181,20 @@ This section contains cells with the following content:
 
 Two further cells are execution cells for (1) preparing the dataset and (2) running the model training.
 
+### To Do - *dataset preparation*:
+Set `study_area`.
+`test_size_number` determines the percentage of validation data (as opposed to training data) that is split from the data set - 0.1 would be 10% validation data, 90% training data.
+Use the checkboxes to choose which data sets you would like to include in the training. You can choose multiple ones - e.g. `sentinel` and `dune_height`.
+Checking `conduct_downsampling` enables the data to be sampled down from 10m to 30m. This has shown accuracy improvement in experiments.
+**To choose any augmentation, you first need to check `conduct_augmentation`.**
+Then, you choose the `batch_size_aug` (batch size for augmentation - this will override any later batch size choice) and a range of augmentation variables (`rotation_range` to `vertical_flip`). Augmentation variables in ImageDataGenerator are, e.g., explained [here](https://www.kaggle.com/code/mahmoudreda55/imagedatagenerator). Note: ImageDataGenerator is deprecated in the most recent keras versions, and we will replace it as soon as possible. `brightness_range_decision` is a custom built augmentation parameter that varies the strength of bands to make the model more robust to different sand colours. `label_mask_threshold` is a cut-off value used to binarise the label after it's gone through the data generator.
+
+Dataset preparation includes a sense check that plots every band of the final training image (including fusion bands - e.g. when the model will be trained on Sentinel-2 + DEM) with their label to make sure they were matched correctly (see image below). Checking `sense_check_save` saves the plots.
+
+<img width="920" height="482" alt="image" src="https://github.com/user-attachments/assets/44cf4332-67ae-4937-8f83-754ef8d146a8" />
+
+
+
 
 ## Visualising validation data
 
