@@ -24,7 +24,6 @@ The notebook uses **interactive dropdown menus and widgets**, so running it in *
 # 2. Recommendet Set-up: Google Colab
 
 We recommend the upload of `duneminds_original.ipynb` and the three helper scripts to the same folder in your Google Drive. Google Colab should automatically be available upon opening the script in your browser. 
-If the `.py` scripts are located in different folders, the paths in `duneminds_original.ipynb` need to be updated.
 Note: Opening the Colab file through the **Open in Colab** button at the top of the **`duneminds_original.ipynb`** script in Github won't work as the script requires the helper scripts (see **1. Overview**).
 
 
@@ -193,6 +192,9 @@ Dataset preparation includes a sense check that plots every band of the final tr
 
 <img width="920" height="482" alt="image" src="https://github.com/user-attachments/assets/44cf4332-67ae-4937-8f83-754ef8d146a8" />
 
+### To Do - *load model and train - paths, variables, execution*:
+Set the following metrics as **lists** so they can be looped through in experiments. If you are not running experiments, make them a list with one item.
+- `lrs` initial learning rate; `bs` batch size; `mts` model type (unet_small, unet_medium, unet_large); `prth` prediction threshold (what probability is needed to predict a cell as 1 = dune crest); `mtr` metric
 
 
 
